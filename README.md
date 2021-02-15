@@ -1,4 +1,4 @@
-<h1 align="center">🔷 Waves Platform Node</h1>
+<h1 align="center">Decentral🔗Chain</h1>
 
 <p align="center">
 
