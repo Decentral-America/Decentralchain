@@ -4,7 +4,7 @@ case class BlockchainFeature private (id: Short, description: String)
 
 object BlockchainFeatures {
 
-  val SmallerMinimalGeneratingBalance = BlockchainFeature(1, "Minimum Generating Balance of 1000 WAVES")
+  val SmallerMinimalGeneratingBalance = BlockchainFeature(1, "Minimum Generating Balance of 1000 DECENTRALCOIN")
   val NG                              = BlockchainFeature(2, "NG Protocol")
   val MassTransfer                    = BlockchainFeature(3, "Mass Transfer Transaction")
   val SmartAccounts                   = BlockchainFeature(4, "Smart Accounts")
@@ -41,7 +41,6 @@ object BlockchainFeatures {
     ReduceNFTFee,
     BlockReward,
     BlockV5
-    // ContinuationTransaction // Don't enable till 1.3
   ).map(f => f.id -> f).toMap
 
   val implemented: Set[Short] = dict.keySet

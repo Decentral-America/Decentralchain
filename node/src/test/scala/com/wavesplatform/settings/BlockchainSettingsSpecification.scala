@@ -55,7 +55,7 @@ class BlockchainSettingsSpecification extends FlatSpec with Matchers {
     settings.addressSchemeCharacter should be('C')
     settings.functionalitySettings.featureCheckBlocksPeriod should be(10000)
     settings.functionalitySettings.blocksForFeatureActivation should be(9000)
-    settings.functionalitySettings.generationBalanceDepthFrom50To1000AfterHeight should be(4)
+    settings.functionalitySettings.generationBalanceDepthFrom50To10000AfterHeight should be(4)
     settings.functionalitySettings.blockVersion3AfterHeight should be(18)
     settings.functionalitySettings.preActivatedFeatures should be(Map(19 -> 100, 20 -> 200))
     settings.functionalitySettings.doubleFeaturesPeriodsAfterHeight should be(21)
@@ -87,7 +87,7 @@ class BlockchainSettingsSpecification extends FlatSpec with Matchers {
     val settings = BlockchainSettings.fromRootConfig(config)
 
     settings.addressSchemeCharacter should be('T')
-    settings.functionalitySettings.generationBalanceDepthFrom50To1000AfterHeight should be(0)
+    settings.functionalitySettings.generationBalanceDepthFrom50To10000AfterHeight should be(0)
     settings.functionalitySettings.blockVersion3AfterHeight should be(161700)
     settings.functionalitySettings.maxTransactionTimeBackOffset should be(120.minutes)
     settings.functionalitySettings.maxTransactionTimeForwardOffset should be(90.minutes)
@@ -124,7 +124,7 @@ class BlockchainSettingsSpecification extends FlatSpec with Matchers {
     val settings = BlockchainSettings.fromRootConfig(config)
 
     settings.addressSchemeCharacter should be('W')
-    settings.functionalitySettings.generationBalanceDepthFrom50To1000AfterHeight should be(232000L)
+    settings.functionalitySettings.generationBalanceDepthFrom50To10000AfterHeight should be(232000L)
     settings.functionalitySettings.maxTransactionTimeBackOffset should be(120.minutes)
     settings.functionalitySettings.maxTransactionTimeForwardOffset should be(90.minutes)
     settings.rewardsSettings.initial should be(600000000)

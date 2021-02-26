@@ -1,12 +1,11 @@
 {
-  "openapi": "3.0.1",
+  "swagger": "2.0",
   "info": {
-    "title": "Waves Full Node (???)",
-    "description": "The Waves node REST API is the main interface for interacting with the blockchain. See [documentation](https://docs.waves.tech/en/waves-node/node-api/) for more info. If this API lacks data you need, check the [Waves Data Services API](https://docs.waves.tech/en/building-apps/waves-api-and-sdk/waves-data-service-api).",
+    "title": "Decentralcoin Full Node (???)",
+    "description": "The Decentralcoin node REST API is the main interface for interacting with the blockchain.",
     "termsOfService": "",
-    "license": {
-      "name": "MIT License",
-      "url": "https://github.com/wavesplatform/Waves/blob/master/LICENSE"
+      "license": {
+      "name": "MIT License"
     },
     "version": "???"
   },
@@ -66,7 +65,7 @@
           "addresses"
         ],
         "summary": "Wallet addresses",
-        "description": "Get a list of account addresses in the [node wallet](https://docs.waves.tech/en/waves-node/how-to-work-with-node-wallet)",
+        "description": "Get a list of account addresses in the node wallet",
         "operationId": "root_1",
         "responses": {
           "200": {
@@ -89,7 +88,7 @@
           "addresses"
         ],
         "summary": "Create wallet address",
-        "description": "Generate a new account address in the [node wallet](https://docs.waves.tech/en/waves-node/how-to-work-with-node-wallet)",
+        "description": "Generate a new account address in the node wallet.",
         "operationId": "create_1",
         "responses": {
           "200": {
@@ -182,7 +181,7 @@
           "addresses"
         ],
         "summary": "Wallet addresses by range",
-        "description": "Get a list addresses in the [node wallet](https://docs.waves.tech/en/waves-node/how-to-work-with-node-wallet) by a given range of indices. Max range {from}-{to} is 100 addresses",
+        "description": "Get a list addresses in the node wallet.",
         "operationId": "seq_2",
         "parameters": [
           {
@@ -314,7 +313,7 @@
         "tags": [
           "addresses"
         ],
-        "summary": "Regular balance in WAVES",
+        "summary": "Regular balance in Decentralcoin",
         "description": "Get the regular balance at a given address",
         "operationId": "balance_2",
         "parameters": [
@@ -365,7 +364,7 @@
           {
             "name": "height",
             "in": "query",
-            "description": "For balance at height requests. Max number of blocks back from the current height is set by `waves.db.max-rollback-depth`, 2000 by default",
+            "description": "For balance at height requests. Max number of blocks back from the current height is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
             "schema": {
               "type": "integer"
             }
@@ -395,7 +394,7 @@
           "addresses"
         ],
         "summary": "Multiple accounts balances",
-        "description": "Get multiple accounts balances. Max number of addresses is set by `waves.rest-api.transactions-by-address-limit`, 1000 by default",
+        "description": "Get multiple accounts balances. Max number of addresses is set by `decentralcoin.rest-api.transactions-by-address-limit`, 1000 by default",
         "operationId": "balance_4",
         "requestBody": {
           "content": {
@@ -418,7 +417,7 @@
                   },
                   "height": {
                     "type": "integer",
-                    "description": "For balance at height requests. Max number of blocks back from the current height is set by `waves.db.max-rollback-depth`, 2000 by default"
+                    "description": "For balance at height requests. Max number of blocks back from the current height is set by `decentralcoin.db.max-rollback-depth`, 2000 by default"
                   }
                 }
               }
@@ -447,7 +446,7 @@
         "tags": [
           "addresses"
         ],
-        "summary": "Effective balance in WAVES",
+        "summary": "Effective balance in Decentralcoin",
         "description": "Get the effective balance at a given address",
         "operationId": "effectiveBalance_1",
         "parameters": [
@@ -747,7 +746,7 @@
                     "verifierComplexity": {
                       "type": "integer",
                       "format": "int64",
-                      "description": "[Complexity](https://docs.waves.tech/en/ride/base-concepts/complexity) of an account script or the verifier function of the dApp script"
+                      "description": "Complexity of an account script or the verifier function of the dApp script"
                     },
                     "callableComplexities": {
                       "type": "object",
@@ -916,8 +915,8 @@
         "tags": [
           "addresses"
         ],
-        "summary": "All types of balances in WAVES",
-        "description": "Get the available, regular, generating, and effective balance, see [definitions](https://docs.waves.tech/en/blockchain/account/account-balance#account-balance-in-waves)",
+        "summary": "All types of balances in Decentralcoin",
+        "description": "Get the available, regular, generating, and effective balance",
         "operationId": "balanceDetails_1",
         "parameters": [
           {
@@ -971,8 +970,8 @@
         "tags": [
           "addresses"
         ],
-        "summary": "Confirmed regular balance in WAVES",
-        "description": "Get the minimum regular balance at a given address for {confirmations} blocks back from the current height. Max number of confirmations is set by `waves.db.max-rollback-depth`, 2000 by default",
+        "summary": "Confirmed regular balance in Decentralcoin",
+        "description": "Get the minimum regular balance at a given address for {confirmations} blocks back from the current height. Max number of confirmations is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
         "operationId": "balanceWithConfirmations_1",
         "parameters": [
           {
@@ -1007,8 +1006,8 @@
         "tags": [
           "addresses"
         ],
-        "summary": "Confirmed effective balance in WAVES",
-        "description": "Get the minimum effective balance at a given address for {confirmations} blocks from the current height. Max number of confirmations is set by `waves.db.max-rollback-depth`, 2000 by default",
+        "summary": "Confirmed effective balance in Decentralcoin",
+        "description": "Get the minimum effective balance at a given address for {confirmations} blocks from the current height. Max number of confirmations is set by `Decentralcoin.db.max-rollback-depth`, 2000 by default",
         "operationId": "effectiveBalanceWithConfirmations_1",
         "parameters": [
           {
@@ -1936,7 +1935,7 @@
           "transactions"
         ],
         "summary": "Transaction statuses",
-        "description": "Get transaction statuses by their ID. Max number of transactions is set by `waves.rest-api.transactions-by-address-limit`, 1000 by default.<br>Transactions in the response are in the same order as in the request.",
+        "description": "Get transaction statuses by their ID. Max number of transactions is set by `decentralcoin.rest-api.transactions-by-address-limit`, 1000 by default.<br>Transactions in the response are in the same order as in the request.",
         "operationId": "status_4",
         "requestBody": {
           "content": {
@@ -2072,10 +2071,10 @@
           "transactions"
         ],
         "summary": "Sign transaction on behalf of wallet account",
-        "description": "Sign a transaction with the private key corresponding to the `sender`. Sender must exist in the [node's wallet](https://docs.waves.tech/en/waves-node/how-to-work-with-node-wallet)",
+        "description": "Sign a transaction with the private key corresponding to the `sender`. Sender must exist in the node's wallet",
         "operationId": "sign",
         "requestBody": {
-          "description": "Transaction [data in JSON](https://docs.waves.tech/en/blockchain/transaction/#json-representation) including [`type`](https://docs.waves.tech/en/blockchain/transaction-type/) and `sender`. If `timestamp` is omitted, current node's time is used. `senderPublicKey` is ignored.",
+          "description": "Transaction data in JSON including `type`and `sender`. If `timestamp` is omitted, current node's time is used. `senderPublicKey` is ignored.",
           "content": {
             "application/json": {
               "schema": {
@@ -2139,7 +2138,7 @@
           "transactions"
         ],
         "summary": "List of transactions by address",
-        "description": "Get a list of the latest transactions involving a given address. Max number of transactions is set by `waves.rest-api.transactions-by-address-limit`, 1000 by default. For pagination, use the field {after}",
+        "description": "Get a list of the latest transactions involving a given address. Max number of transactions is set by `decentralcoin.rest-api.transactions-by-address-limit`, 1000 by default. For pagination, use the field {after}",
         "operationId": "addressLimit_1",
         "parameters": [
           {
@@ -2247,7 +2246,7 @@
         "description": "Get the minimum fee for a given transaction",
         "operationId": "calculateFee_1",
         "requestBody": {
-          "description": "Transaction [data in JSON](https://docs.waves.tech/en/blockchain/transaction/#json-representation) including [`type`](https://docs.waves.tech/en/blockchain/transaction-type/) and `senderPublicKey`. To calculate a sponsored fee, specify `feeAssetId`. `fee` and `sender` are ignored.",
+          "description": "Transaction data in JSON including `type` and `senderPublicKey`. To calculate a sponsored fee, specify `feeAssetId`. `fee` and `sender` are ignored.",
           "content": {
             "application/json": {
               "schema": {
@@ -2291,7 +2290,7 @@
           "transactions"
         ],
         "summary": "Sign transaction on behalf of wallet account",
-        "description": "Sign a transaction with the private key corresponding to a given address. The address must exist in the [node's wallet](https://docs.waves.tech/en/waves-node/how-to-work-with-node-wallet)",
+        "description": "Sign a transaction with the private key corresponding to a given address. The address must exist in the node's wallet",
         "operationId": "signWithSigner_1",
         "parameters": [
           {
@@ -2306,7 +2305,7 @@
           }
         ],
         "requestBody": {
-          "description": "Transaction [data in JSON](https://docs.waves.tech/en/blockchain/transaction/#json-representation) including [`type`](https://docs.waves.tech/en/blockchain/transaction-type/) and `sender`. If `timestamp` is omitted, current node's time is used. `senderPublicKey` is ignored.",
+          "description": "Transaction data in JSON including `type` and `sender`. If `timestamp` is omitted, current node's time is used. `senderPublicKey` is ignored.",
           "content": {
             "application/json": {
               "schema": {
@@ -2348,7 +2347,7 @@
         "description": "Broadcast a signed transaction",
         "operationId": "signedBroadcast_1",
         "requestBody": {
-          "description": "Transaction [data in JSON](https://docs.waves.tech/en/blockchain/transaction/#json-representation) including [`type`](https://docs.waves.tech/en/blockchain/transaction-type/) and `signature`/`proofs`",
+          "description": "Transaction data in JSON including `type` and `signature`/`proofs`",
           "content": {
             "application/json": {
               "schema": {
@@ -2379,7 +2378,7 @@
           "transactions"
         ],
         "summary": "Merkle proofs",
-        "description": "Get [merkle proofs](https://docs.waves.tech/en/blockchain/block/merkle-root#proof-of-transaction-in-block) for given transactions. For dozens of transactions, better use the POST method",
+        "description": "Get merkle proofs for given transactions. For dozens of transactions, better use the POST method",
         "operationId": "merkle_proof_1",
         "parameters": [
           {
@@ -2415,7 +2414,7 @@
           "transactions"
         ],
         "summary": "Merkle proofs",
-        "description": "Get [merkle proofs](https://docs.waves.tech/en/blockchain/block/merkle-root#proof-of-transaction-in-block) for given transactions",
+        "description": "Get merkle proofs for given transactions",
         "operationId": "merkle_proof_2",
         "requestBody": {
           "description": "Transaction IDs",
@@ -2748,7 +2747,7 @@
                     "verifierComplexity": {
                       "type": "integer",
                       "format": "int64",
-                      "description": "[Complexity](https://docs.waves.tech/en/ride/base-concepts/complexity) of the account or asset script or the verifier function of the dApp script"
+                      "description": "Complexity of the account or asset script or the verifier function of the dApp script"
                     },
                     "callableComplexities": {
                       "type": "object",
@@ -2942,7 +2941,7 @@
         "description": "Serialize transaction",
         "operationId": "transactionSerialize_1",
         "requestBody": {
-          "description": "Transaction [data in JSON](https://docs.waves.tech/en/blockchain/transaction/#json-representation) including [`type`](https://docs.waves.tech/en/blockchain/transaction-type/)",
+          "description": "Transaction data in JSON including `type`",
           "content": {
             "application/json": {
               "schema": {
@@ -3094,7 +3093,7 @@
           "assets"
         ],
         "summary": "Account balances in all assets",
-        "description": "Get account balances in all assets (excluding WAVES and NFTs) at a given address",
+        "description": "Get account balances in all assets (excluding Decentralcoin and NFTs) at a given address",
         "operationId": "balances_1",
         "parameters": [
           {
@@ -3147,13 +3146,13 @@
                             "type": "integer",
                             "format": "int64",
                             "nullable": true,
-                            "description": "For [sponsored asset](https://docs.waves.tech/en/blockchain/waves-protocol/sponsored-fee) only: the equivalent of 0.001 WAVES"
+                            "description": "For sponsored asset only: the equivalent of 0.001 Decentralcoin"
                           },
                           "sponsorBalance": {
                             "type": "integer",
                             "format": "int64",
                             "nullable": true,
-                            "description": "For [sponsored asset](https://docs.waves.tech/en/blockchain/waves-protocol/sponsored-fee) only: the sponsor balance in WAVES"
+                            "description": "For sponsored asset only: the sponsor balance in Decentralcoin"
                           },
                           "quantity": {
                             "type": "integer",
@@ -3180,7 +3179,7 @@
           "assets"
         ],
         "summary": "Information about asset",
-        "description": "Get detailed information about a given asset. See [fields descriptions](https://docs.waves.tech/en/blockchain/token/#custom-token-parameters)",
+        "description": "Get detailed information about a given asset. See fields descriptions",
         "operationId": "asset_details",
         "parameters": [
           {
@@ -3215,7 +3214,7 @@
           "assets"
         ],
         "summary": "Information about multiple assets",
-        "description": "Get detailed information about given assets. See [fields descriptions](https://docs.waves.tech/en/blockchain/token/#custom-token-parameters)",
+        "description": "Get detailed information about given assets. See fields descriptions",
         "operationId": "asset_details_array",
         "parameters": [
           {
@@ -3339,7 +3338,7 @@
           "assets"
         ],
         "summary": "Asset balance distribution at height",
-        "description": "Get asset balance distribution by addresses at a given height. Max number of addresses is set by `waves.rest-api.distribution-address-limit`, 1000 by default. For pagination, use the field {after}",
+        "description": "Get asset balance distribution by addresses at a given height. Max number of addresses is set by `decentralcoin.rest-api.distribution-address-limit`, 1000 by default. For pagination, use the field {after}",
         "operationId": "balanceDistributionAtHeight_1",
         "parameters": [
           {
@@ -3348,7 +3347,7 @@
           {
             "name": "height",
             "in": "path",
-            "description": "For balance at height requests. Max number of blocks back from the current height is set by `waves.db.max-rollback-depth`, 2000 by default",
+            "description": "For balance at height requests. Max number of blocks back from the current height is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
             "required": true,
             "schema": {
               "type": "integer"
@@ -3392,7 +3391,7 @@
           "assets"
         ],
         "summary": "Account NFTs",
-        "description": "Get a list of [non-fungible tokens](https://docs.waves.tech/en/blockchain/token/non-fungible-token) at a given address. Max for 1000 tokens. For pagination, use the field {after}. See [fields descriptions](https://docs.waves.tech/en/blockchain/token/#custom-token-parameters).<br>Since activation of [feature #15](https://docs.waves.tech/en/waves-node/features/) this method returns only tokens that are issued as NFT (amount: 1, decimal places: 0, reissuable: false) after activation of feature #13. Before activation of feature #15 the method returned all the assets that are issued as NFT.",
+        "description": "Get a list of non-fungible tokens at a given address. Max for 1000 tokens. For pagination, use the field {after}.<br>Since activation of feature #15 this method returns only tokens that are issued as NFT (amount: 1, decimal places: 0, reissuable: false) after activation of feature #13. Before activation of feature #15 the method returned all the assets that are issued as NFT.",
         "operationId": "nft_1",
         "parameters": [
           {
@@ -3617,7 +3616,7 @@
           "activation"
         ],
         "summary": "Feature activation status",
-        "description": "Activation statuses of [blockchain features](https://docs.waves.tech/en/waves-node/features/)",
+        "description": "Activation statuses of blockchain features",
         "operationId": "status",
         "responses": {
           "200": {
@@ -3960,7 +3959,7 @@
           "debug"
         ],
         "summary": "State hash",
-        "description": "Get state hash at height. Available only if node configuration contains `waves.db.store-state-hashes = true` option",
+        "description": "Get state hash at height. Available only if node configuration contains `decentralcoin.db.store-state-hashes = true` option",
         "operationId": "state_hash",
         "parameters": [
           {
@@ -3984,7 +3983,7 @@
                     "blockId": {
                       "type": "string"
                     },
-                    "wavesBalanceHash": {
+                    "DecentralcoinBalanceHash": {
                       "type": "string"
                     },
                     "assetsBalanceHash": {
@@ -4028,7 +4027,7 @@
           "debug"
         ],
         "summary": "Blacklist peer",
-        "description": "Move a given peer to the blacklist for the time specified in `waves.network.black-list-residence-time`, 15 min by default. The connection to the peer is immediately closed (if it was open)",
+        "description": "Move a given peer to the blacklist for the time specified in `decentralcoin.network.black-list-residence-time`, 15 min by default. The connection to the peer is immediately closed (if it was open)",
         "operationId": "blacklist_1",
         "requestBody": {
           "description": "IP address of node",
@@ -4249,7 +4248,7 @@
           "debug"
         ],
         "summary": "History of regular balance",
-        "description": "Get history of the regular balance at a given address. Max depth is set by `waves.db.max-rollback-depth`, 2000 by default",
+        "description": "Get history of the regular balance at a given address. Max depth is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
         "operationId": "balanceHistory_1",
         "parameters": [
           {
@@ -4287,14 +4286,14 @@
         }
       }
     },
-    "/debug/stateWaves/{height}": {
+    "/debug/stateDecentralcoin/{height}": {
       "get": {
         "tags": [
           "debug"
         ],
         "summary": "Regular address balance at the height",
-        "description": "Regular address balance at the height. Max number of blocks back from the current height is set by `waves.db.max-rollback-depth`, 2000 by default",
-        "operationId": "stateWaves_1",
+        "description": "Regular address balance at the height. Max number of blocks back from the current height is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
+        "operationId": "stateDecentralcoin_1",
         "parameters": [
           {
             "name": "height",
@@ -4343,7 +4342,7 @@
           "debug"
         ],
         "summary": "Rollback to height",
-        "description": "Removes all blocks after a given height. Max number of blocks back from the current height is set by `waves.db.max-rollback-depth`, 2000 by default",
+        "description": "Removes all blocks after a given height. Max number of blocks back from the current height is set by `decentralcoin.db.max-rollback-depth`, 2000 by default",
         "operationId": "rollback_1",
         "requestBody": {
           "description": "JSON with data",
@@ -4646,7 +4645,7 @@
           "node"
         ],
         "summary": "Version",
-        "description": "Get Waves node version",
+        "description": "Get Decentralcoin node version",
         "operationId": "version_1",
         "responses": {
           "200": {
@@ -5037,7 +5036,7 @@
           "verifierComplexity": {
             "type": "integer",
             "format": "int64",
-            "description": "[Complexity](https://docs.waves.tech/en/ride/base-concepts/complexity) of an account or asset script or the verifier function of the dApp script"
+            "description": "[Complexity](https://docs.Decentralcoin.tech/en/ride/base-concepts/complexity) of an account or asset script or the verifier function of the dApp script"
           },
           "callableComplexities": {
             "type": "object",
@@ -5312,7 +5311,7 @@
           "minIncrement",
           "nextCheck",
           "term",
-          "totalWavesAmount",
+          "totalDecentralcoinAmount",
           "votes",
           "votingInterval",
           "votingIntervalStart",
@@ -5324,7 +5323,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "totalWavesAmount": {
+          "totalDecentralcoinAmount": {
             "type": "integer",
             "format": "int64"
           },
@@ -5473,7 +5472,7 @@
       },
       "Transaction": {
         "type": "object",
-        "description": "Transaction's JSON representation (see <a href='https://docs.wavesplatform.com/en/blockchain/transaction/'>documentation</a>)",
+        "description": "Transaction's JSON representation.",
         "example": {
           "id": "string",
           "timestamp": 0,
@@ -5563,7 +5562,7 @@
           },
           "applicationStatus": {
             "type": "string",
-            "description": "succeeded: transaction is successful, script_execution_failed: the dApp script or the asset script failed. See [Transaction Validation](https://docs.waves.tech/en/blockchain/transaction/transaction-validation) for details"
+            "description": "succeeded: transaction is successful, script_execution_failed: the dApp script or the asset script failed."
           }
         }
       },

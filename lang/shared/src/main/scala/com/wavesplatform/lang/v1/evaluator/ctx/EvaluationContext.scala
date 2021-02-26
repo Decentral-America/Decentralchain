@@ -2,13 +2,10 @@ package com.wavesplatform.lang.v1.evaluator.ctx
 
 import cats._
 import com.wavesplatform.lang.v1.FunctionHeader
-import com.wavesplatform.lang.v1.compiler.Terms.LET
 import com.wavesplatform.lang.v1.compiler.Types.FINAL
 import com.wavesplatform.lang.v1.evaluator.Contextful.NoContext
-import com.wavesplatform.lang.v1.evaluator.{Contextful, LetExecResult, LetLogCallback}
+import com.wavesplatform.lang.v1.evaluator.{Contextful, LetLogCallback}
 import shapeless.{Lens, lens}
-
-import java.util
 
 case class EvaluationContext[C[_[_]], F[_]](
    environment: C[F],
@@ -17,12 +14,7 @@ case class EvaluationContext[C[_[_]], F[_]](
    functions: Map[FunctionHeader, BaseFunction[C]]
 )
 
-case class LoggedEvaluationContext[C[_[_]], F[_]](l: LetLogCallback[F], ec: EvaluationContext[C, F]) {
-  val loggedLets: util.IdentityHashMap[LET, Unit] = new util.IdentityHashMap()
-
-  def log(let: LET, result: LetExecResult[F]): Unit =
-    loggedLets.computeIfAbsent(let, _ => l(let.name)(result))
-}
+case class LoggedEvaluationContext[C[_[_]], F[_]](l: LetLogCallback[F], ec: EvaluationContext[C, F])
 
 object LoggedEvaluationContext {
   class Lenses[F[_], C[_[_]]] {

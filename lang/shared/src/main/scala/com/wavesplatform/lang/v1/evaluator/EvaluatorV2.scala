@@ -193,6 +193,10 @@ class EvaluatorV2(
       let: LET,
       nextParentBlocks: List[BLOCK_DEF]
   ): Coeval[Int] = {
+    val wasLogged = let.value match {
+      case evaluated: EVALUATED if evaluated.wasLogged => true
+      case _                                           => false
+    }
     root(
       expr = let.value,
       update = v =>
@@ -201,8 +205,10 @@ class EvaluatorV2(
           .map(
             _ =>
               let.value match {
-                case e: EVALUATED => ctx.log(let, Right(e))
-                case _            =>
+                case evaluated: EVALUATED if !wasLogged =>
+                  ctx.l(let.name)(Right(evaluated))
+                  evaluated.wasLogged = true
+                case _ => ()
               }
           ),
       limit = limit,
@@ -219,7 +225,7 @@ class EvaluatorV2(
       }
       .onErrorHandle { e =>
         val error = if (e.getMessage != null) e.getMessage else e.toString
-        ctx.log(let, Left(error))
+        if (!wasLogged) ctx.l(let.name)(Left(error))
         throw e
       }
   }

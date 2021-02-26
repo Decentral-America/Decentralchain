@@ -61,7 +61,7 @@ object RewardsSettings {
 case class FunctionalitySettings(
     featureCheckBlocksPeriod: Int,
     blocksForFeatureActivation: Int,
-    generationBalanceDepthFrom50To1000AfterHeight: Int = 0,
+    generationBalanceDepthFrom50To10000AfterHeight: Int = 0,
     blockVersion3AfterHeight: Int = 0,
     preActivatedFeatures: Map[Short, Int] = Map.empty,
     doubleFeaturesPeriodsAfterHeight: Int,
@@ -103,14 +103,14 @@ case class FunctionalitySettings(
     blocksForFeatureActivation * (if (height <= doubleFeaturesPeriodsAfterHeight) 1 else 2)
 
   def generatingBalanceDepth(height: Int): Int =
-    if (height >= generationBalanceDepthFrom50To1000AfterHeight) 1000 else 50
+    if (height >= generationBalanceDepthFrom50To10000AfterHeight) 10000 else 50
 }
 
 object FunctionalitySettings {
   val MAINNET = apply(
     featureCheckBlocksPeriod = 5000,
     blocksForFeatureActivation = 4000,
-    generationBalanceDepthFrom50To1000AfterHeight = 232000,
+    generationBalanceDepthFrom50To10000AfterHeight = 232000,
     lastTimeBasedForkParameter = 1530161445559L,
     blockVersion3AfterHeight = 795000,
     doubleFeaturesPeriodsAfterHeight = 810000,
